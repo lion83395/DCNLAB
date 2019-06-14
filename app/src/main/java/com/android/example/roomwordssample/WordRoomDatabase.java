@@ -93,8 +93,8 @@ public abstract class WordRoomDatabase extends RoomDatabase {
                 }
             }*/
 
-            mDao.insert(new Word("Question 1","Answer1"));
-            mDao.insert(new Word("Question 2","Answer2"));
+           // mDao.insert(new Word("Question 1","Answer1"));
+           // mDao.insert(new Word("Question 2","Answer2"));
             return null;
         }
     }

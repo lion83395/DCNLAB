@@ -28,6 +28,7 @@ import com.android.example.roomwordssample.R;
 
 import static com.android.example.roomwordssample.MainActivity.EXTRA_DATA_UPDATE_WORD;
 import static com.android.example.roomwordssample.MainActivity.EXTRA_DATA_UPDATE_WORD1;
+import static com.android.example.roomwordssample.MainActivity.EXTRA_DATA_UPDATE_WORD2;
 
 /**
  * This class displays a screen where the user enters a new word.
@@ -40,17 +41,20 @@ public class NewWordActivity extends AppCompatActivity {
             "com.codinginflow.architectureexample.EXTRA_ID";
     public static final String EXTRA_REPLY = "com.example.android.roomwordsample.REPLY";
     public static final String EXTRA_REPLY1 = "com.example.android.roomwordsample.REPLY1";
+    public static final String EXTRA_REPLY2 = "com.example.android.roomwordsample.REPLY2";
 
     private EditText mEditWordView;
     private EditText mEditWordView1;
+    private EditText mEditWordView2;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_word);
 
-        mEditWordView = findViewById(R.id.edit_word);
-        mEditWordView1=findViewById(R.id.edit_answer);
+        mEditWordView = findViewById(R.id.edit_weight);
+        mEditWordView1=findViewById(R.id.edit_pressure);
+        mEditWordView2=findViewById(R.id.edit_bloodsugar);
 
 
        final Bundle extras = getIntent().getExtras();
@@ -59,13 +63,17 @@ public class NewWordActivity extends AppCompatActivity {
         if (extras != null) {
             String word = extras.getString(EXTRA_DATA_UPDATE_WORD, "");
             String word1= extras.getString(EXTRA_DATA_UPDATE_WORD1,"");
+            String word2= extras.getString(EXTRA_DATA_UPDATE_WORD2,"");
             if (!word.isEmpty()) {
                 mEditWordView.setText(word);
                 mEditWordView1.setText(word1);
+                mEditWordView2.setText(word2);
                 mEditWordView.setSelection(word.length());
                 mEditWordView1.setSelection(word1.length());
+                mEditWordView2.setSelection(word2.length());
                 mEditWordView.requestFocus();
                 mEditWordView1.requestFocus();
+                mEditWordView2.requestFocus();
             }
         } // Otherwise, start with empty fields.
 
@@ -84,9 +92,11 @@ public class NewWordActivity extends AppCompatActivity {
                     // Get the new word that the user entered.
                     String word = mEditWordView.getText().toString();
                     String word1= mEditWordView1.getText().toString();
+                    String word2= mEditWordView2.getText().toString();
                     // Put the new word in the extras for the reply Intent.
                     replyIntent.putExtra(EXTRA_REPLY, word);
                     replyIntent.putExtra(EXTRA_REPLY1,word1);
+                    replyIntent.putExtra(EXTRA_REPLY2,word2);
                    int id = getIntent().getIntExtra(EXTRA_ID, -1);
                    if (id != -1) {
                        replyIntent.putExtra(EXTRA_ID, id);

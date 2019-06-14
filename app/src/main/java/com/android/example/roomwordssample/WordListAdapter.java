@@ -26,6 +26,8 @@ import android.widget.TextView;
 import com.android.example.roomwordssample.R;
 import com.android.example.roomwordssample.Word;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,8 +56,9 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
     public void onBindViewHolder(WordViewHolder holder, int position) {
 
             Word current = mWords.get(position);
-            holder.wordItemView.setText(current.getWord());
-            holder.answerItemView.setText(current.getAnswer());
+            holder.weightItemView.setText(current.getWeight());
+            holder.pressureItemView.setText(current.getPressure());
+            holder.bloodpressureItemView.setText(current.getBloSugar());
          /*else {
             // Covers the case of data not being ready yet.
             // holder.wordItemView.setText("No Word");
@@ -94,13 +97,15 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
     }
 
     class WordViewHolder extends RecyclerView.ViewHolder {
-        private  TextView wordItemView;
-        private  TextView answerItemView;
+        private  TextView weightItemView;
+        private  TextView pressureItemView;
+        private TextView bloodpressureItemView;
 
         private WordViewHolder(View itemView) {
             super(itemView);
-            wordItemView = itemView.findViewById(R.id.textView);
-            answerItemView = itemView.findViewById(R.id.textView2);
+            weightItemView = itemView.findViewById(R.id.textView);
+            pressureItemView = itemView.findViewById(R.id.textView1);
+            bloodpressureItemView= itemView.findViewById(R.id.textView2);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

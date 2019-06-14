@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String EXTRA_DATA_UPDATE_WORD = "extra_word_to_be_updated";
     public static final String EXTRA_DATA_UPDATE_WORD1 = "1";
+    public static final String EXTRA_DATA_UPDATE_WORD2 = "2";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         textView1=findViewById(R.id.textView);
-        textView2=findViewById(R.id.textView2);
+        //textView2=findViewById(R.id.textView2);
 
         // Setup the RecyclerView
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
@@ -122,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
                         Word myWord = adapter.getWordAtPosition(position);
                         Toast.makeText(MainActivity.this,
                                 getString(R.string.delete_word_preamble) + " " +
-                                myWord.getWord(), Toast.LENGTH_LONG).show();
+                                myWord.getWeight(), Toast.LENGTH_LONG).show();
 
                         // Delete the word
                         mWordViewModel.deleteWord(myWord);
@@ -182,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == NEW_WORD_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            Word word = new Word(data.getStringExtra(NewWordActivity.EXTRA_REPLY),data.getStringExtra(NewWordActivity.EXTRA_REPLY1));
+            Word word = new Word(data.getStringExtra(NewWordActivity.EXTRA_REPLY),data.getStringExtra(NewWordActivity.EXTRA_REPLY1),data.getStringExtra(NewWordActivity.EXTRA_REPLY2));
             // Save the data
             mWordViewModel.insert(word);
         } else if (requestCode == UPDATE_WORD_ACTIVITY_REQUEST_CODE
@@ -193,11 +194,11 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Note can't be updated", Toast.LENGTH_SHORT).show();
                 return;
             }
-            Word word = new Word(data.getStringExtra(NewWordActivity.EXTRA_REPLY),data.getStringExtra(NewWordActivity.EXTRA_REPLY1));
+            Word word = new Word(data.getStringExtra(NewWordActivity.EXTRA_REPLY),data.getStringExtra(NewWordActivity.EXTRA_REPLY1),data.getStringExtra(NewWordActivity.EXTRA_REPLY2));
             word.setId(id);
             mWordViewModel.update(word);
 
-            Toast.makeText(this,word.getWord()+word.getAnswer(),Toast.LENGTH_SHORT).show();
+           // Toast.makeText(this,word.getWord()+word.getAnswer(),Toast.LENGTH_SHORT).show();
 
 
         }else {
@@ -207,8 +208,9 @@ public class MainActivity extends AppCompatActivity {
     }
     public void launchUpdateWordActivity( Word word) {
         Intent intent = new Intent(this, NewWordActivity.class);
-        intent.putExtra(EXTRA_DATA_UPDATE_WORD, word.getWord());
-        intent.putExtra(EXTRA_DATA_UPDATE_WORD1,word.getAnswer());
+        intent.putExtra(EXTRA_DATA_UPDATE_WORD, word.getWeight());
+        intent.putExtra(EXTRA_DATA_UPDATE_WORD1,word.getPressure());
+        intent.putExtra(EXTRA_DATA_UPDATE_WORD2,word.getBloSugar());
         intent.putExtra(NewWordActivity.EXTRA_ID, word.getId());
         startActivityForResult(intent, UPDATE_WORD_ACTIVITY_REQUEST_CODE);
     }

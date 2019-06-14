@@ -32,18 +32,25 @@ public class Word {
     private int id;
    // @NonNull
    // @ColumnInfo(name = "word")
-    private String mWord;
+    private String mWeight;
+    private String mPressure;
+    private String mBloSugar;
 
-    private String mAnswer;
     public void setId(int id){
         this.id=id;
     }
 
-    public Word( String word,String answer) {this.mWord = word;this.mAnswer=answer;}
+    public Word( String weight ,String pressure,String mBloSugar) {
+        this.mWeight = weight;
+        this.mPressure=pressure;
+        this.mBloSugar=mBloSugar;
+    }
 
-    public String getWord(){return this.mWord;}
+    public String getWeight(){return this.mWeight;}
 
-    public String getAnswer(){return  this.mAnswer;}
+    public String getPressure(){return  this.mPressure;}
+
+    public String getBloSugar(){return  this.mBloSugar;}
 
     public int getId(){return id;}
 }
