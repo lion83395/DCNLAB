@@ -28,19 +28,8 @@ limitations under the License. -->
         android:layout_height="wrap_content"
         android:elevation="8dp"
         tools:text="placeholder text" />
-    <TextView
-        android:id="@+id/textView1"
-        style="@style/text_view_style"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:elevation="8dp"
-        tools:text="placeholder text" />
-    <TextView
-        android:id="@+id/textView2"
-        style="@style/text_view_style"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:elevation="8dp"
-        tools:text="placeholder text" />
+
+
+
 </LinearLayout>
 
