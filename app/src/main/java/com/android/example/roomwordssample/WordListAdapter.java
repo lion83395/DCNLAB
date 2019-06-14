@@ -18,6 +18,7 @@ package com.android.example.roomwordssample;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,7 @@ import com.android.example.roomwordssample.Word;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -54,11 +56,13 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
 
     @Override
     public void onBindViewHolder(WordViewHolder holder, int position) {
+        Calendar mCal=Calendar.getInstance();
+        CharSequence s= DateFormat.format("yyyy-MM-dd kk:mm:ss",mCal.getTime());
 
             Word current = mWords.get(position);
-            holder.weightItemView.setText(current.getWeight());
-            holder.pressureItemView.setText(current.getPressure());
-            holder.bloodpressureItemView.setText(current.getBloSugar());
+            holder.weightItemView.setText(current.getTime());
+         //   holder.pressureItemView.setText(current.getPressure());
+          //  holder.bloodpressureItemView.setText(current.getBloSugar());
          /*else {
             // Covers the case of data not being ready yet.
             // holder.wordItemView.setText("No Word");
@@ -98,14 +102,14 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
 
     class WordViewHolder extends RecyclerView.ViewHolder {
         private  TextView weightItemView;
-        private  TextView pressureItemView;
-        private TextView bloodpressureItemView;
+      //  private  TextView pressureItemView;
+       // private TextView bloodpressureItemView;
 
         private WordViewHolder(View itemView) {
             super(itemView);
             weightItemView = itemView.findViewById(R.id.textView);
-            pressureItemView = itemView.findViewById(R.id.textView1);
-            bloodpressureItemView= itemView.findViewById(R.id.textView2);
+          //  pressureItemView = itemView.findViewById(R.id.textView1);
+          //  bloodpressureItemView= itemView.findViewById(R.id.textView2);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
