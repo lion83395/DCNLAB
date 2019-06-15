@@ -76,8 +76,7 @@ public abstract class WordRoomDatabase extends RoomDatabase {
         private final WordDao mDao;
 
         // Initial data set
-        private static String [] words = {"Question 1", "Question 2"};
-        private static String [] answers={"A1","A2"};
+
 
         PopulateDbAsync(WordRoomDatabase db) {
             mDao = db.wordDao();

@@ -19,23 +19,57 @@ limitations under the License. -->
     android:layout_height="match_parent"
     android:background="@color/colorScreenBackground"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="體重" />
 
     <EditText
         android:id="@+id/edit_weight"
         style="@style/text_view_style"
-        android:hint="輸入體重"
+        android:layout_height="wrap_content"
+        android:hint="輸入體重(KG)"
         android:inputType="textAutoComplete" />
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="收縮壓" />
+
     <EditText
         android:id="@+id/edit_pressure"
         style="@style/text_view_style"
-        android:hint="輸入血壓"
+        android:layout_height="wrap_content"
+        android:hint="輸入收縮壓"
         android:inputType="textAutoComplete" />
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="舒張壓" />
+    <EditText
+        android:id="@+id/edit_pressuredown"
+        style="@style/text_view_style"
+        android:hint="輸入舒張壓"
+        android:inputType="textAutoComplete" />
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="血糖" />
     <EditText
         android:id="@+id/edit_bloodsugar"
         style="@style/text_view_style"
         android:hint="輸入血糖"
         android:inputType="textAutoComplete" />
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="日期" />
     <EditText
         android:id="@+id/edit_time"
         style="@style/text_view_style"
@@ -44,7 +78,7 @@ limitations under the License. -->
     <Button
         android:id="@+id/button_save"
         style="@style/button_style"
-        android:text="@string/button_save" />
+        android:text="儲存" />
 
 
 

@@ -34,6 +34,7 @@ public class Word {
    // @ColumnInfo(name = "word")
     private String mWeight;
     private String mPressure;
+    private String mPressuredown;
     private String mBloSugar;
     private String mTime;
 
@@ -41,9 +42,10 @@ public class Word {
         this.id=id;
     }
 
-    public Word( String weight ,String pressure,String mBloSugar,String mTime) {
+    public Word( String weight ,String pressure,String mPressuredown,String mBloSugar,String mTime) {
         this.mWeight = weight;
         this.mPressure=pressure;
+        this.mPressuredown=mPressuredown;
         this.mBloSugar=mBloSugar;
         this.mTime=mTime;
     }
@@ -51,6 +53,8 @@ public class Word {
     public String getWeight(){return this.mWeight;}
 
     public String getPressure(){return  this.mPressure;}
+
+    public String getPressuredown(){return this.mPressuredown;}
 
     public String getBloSugar(){return  this.mBloSugar;}
 

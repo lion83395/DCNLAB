@@ -30,6 +30,7 @@ import static com.android.example.roomwordssample.MainActivity.EXTRA_DATA_UPDATE
 import static com.android.example.roomwordssample.MainActivity.EXTRA_DATA_UPDATE_WORD1;
 import static com.android.example.roomwordssample.MainActivity.EXTRA_DATA_UPDATE_WORD2;
 import static com.android.example.roomwordssample.MainActivity.EXTRA_DATA_UPDATE_WORD3;
+import static com.android.example.roomwordssample.MainActivity.EXTRA_DATA_UPDATE_WORD4;
 
 /**
  * This class displays a screen where the user enters a new word.
@@ -44,12 +45,13 @@ public class NewWordActivity extends AppCompatActivity {
     public static final String EXTRA_REPLY1 = "com.example.android.roomwordsample.REPLY1";
     public static final String EXTRA_REPLY2 = "com.example.android.roomwordsample.REPLY2";
     public static final String EXTRA_REPLY3 = "com.example.android.roomwordsample.REPLY3";
+    public static final String EXTRA_REPLY4 = "com.example.android.roomwordsample.REPLY4";
 
     private EditText mEditWordView;
     private EditText mEditWordView1;
     private EditText mEditWordView2;
     private EditText mEditWordView3;
-
+    private EditText mEditWordView4;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,8 +59,9 @@ public class NewWordActivity extends AppCompatActivity {
 
         mEditWordView = findViewById(R.id.edit_weight);
         mEditWordView1=findViewById(R.id.edit_pressure);
-        mEditWordView2=findViewById(R.id.edit_bloodsugar);
-        mEditWordView3=findViewById(R.id.edit_time);
+        mEditWordView2=findViewById(R.id.edit_pressuredown);
+        mEditWordView3=findViewById(R.id.edit_bloodsugar);
+        mEditWordView4=findViewById(R.id.edit_time);
 
 
        final Bundle extras = getIntent().getExtras();
@@ -69,19 +72,23 @@ public class NewWordActivity extends AppCompatActivity {
             String word1= extras.getString(EXTRA_DATA_UPDATE_WORD1,"");
             String word2= extras.getString(EXTRA_DATA_UPDATE_WORD2,"");
             String word3= extras.getString(EXTRA_DATA_UPDATE_WORD3,"");
+            String word4= extras.getString(EXTRA_DATA_UPDATE_WORD4,"");
             if (!word.isEmpty()) {
-                mEditWordView.setText(word);
-                mEditWordView1.setText(word1);
-                mEditWordView2.setText(word2);
-                mEditWordView3.setText(word3);
+                mEditWordView.setText(word+"KG");
+                mEditWordView1.setText(word1+"mmHG");
+                mEditWordView2.setText(word2+"mmHG");
+                mEditWordView3.setText(word3+"mg/dl");
+                mEditWordView4.setText(word4);
                 mEditWordView.setSelection(word.length());
                 mEditWordView1.setSelection(word1.length());
                 mEditWordView2.setSelection(word2.length());
                 mEditWordView3.setSelection(word3.length());
+                mEditWordView4.setSelection(word4.length());
                 mEditWordView.requestFocus();
                 mEditWordView1.requestFocus();
                 mEditWordView2.requestFocus();
                 mEditWordView3.requestFocus();
+                mEditWordView4.requestFocus();
             }
         } // Otherwise, start with empty fields.
 
@@ -102,11 +109,13 @@ public class NewWordActivity extends AppCompatActivity {
                     String word1= mEditWordView1.getText().toString();
                     String word2= mEditWordView2.getText().toString();
                     String word3= mEditWordView3.getText().toString();
+                    String word4= mEditWordView4.getText().toString();
                     // Put the new word in the extras for the reply Intent.
                     replyIntent.putExtra(EXTRA_REPLY, word);
                     replyIntent.putExtra(EXTRA_REPLY1,word1);
                     replyIntent.putExtra(EXTRA_REPLY2,word2);
                     replyIntent.putExtra(EXTRA_REPLY3,word3);
+                    replyIntent.putExtra(EXTRA_REPLY4,word4);
                    int id = getIntent().getIntExtra(EXTRA_ID, -1);
                    if (id != -1) {
                        replyIntent.putExtra(EXTRA_ID, id);
