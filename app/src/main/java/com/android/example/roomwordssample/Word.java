@@ -37,17 +37,19 @@ public class Word {
     private String mPressuredown;
     private String mBloSugar;
     private String mTime;
+    private String mTimer;
 
     public void setId(int id){
         this.id=id;
     }
 
-    public Word( String weight ,String pressure,String mPressuredown,String mBloSugar,String mTime) {
+    public Word( String weight ,String pressure,String mPressuredown,String mBloSugar,String mTime,String mTimer) {
         this.mWeight = weight;
         this.mPressure=pressure;
         this.mPressuredown=mPressuredown;
         this.mBloSugar=mBloSugar;
         this.mTime=mTime;
+        this.mTimer=mTimer;
     }
 
     public String getWeight(){return this.mWeight;}
@@ -59,6 +61,8 @@ public class Word {
     public String getBloSugar(){return  this.mBloSugar;}
 
     public String getTime(){return  this.mTime;}
+
+    public String getTimer(){return this.mTimer;}
 
     public int getId(){return id;}
 }

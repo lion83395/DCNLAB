@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_DATA_UPDATE_WORD2 = "2";
     public static final String EXTRA_DATA_UPDATE_WORD3 = "3";
     public static final String EXTRA_DATA_UPDATE_WORD4 = "4";
+    public static final String EXTRA_DATA_UPDATE_WORD5 = "5";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -186,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (requestCode == NEW_WORD_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             Word word = new Word(data.getStringExtra(NewWordActivity.EXTRA_REPLY),data.getStringExtra(NewWordActivity.EXTRA_REPLY1),data.getStringExtra(NewWordActivity.EXTRA_REPLY2)
-            ,data.getStringExtra(NewWordActivity.EXTRA_REPLY3),data.getStringExtra(NewWordActivity.EXTRA_REPLY4));
+            ,data.getStringExtra(NewWordActivity.EXTRA_REPLY3),data.getStringExtra(NewWordActivity.EXTRA_REPLY4),data.getStringExtra(NewWordActivity.EXTRA_REPLY5));
             // Save the data
             mWordViewModel.insert(word);
         } else if (requestCode == UPDATE_WORD_ACTIVITY_REQUEST_CODE
@@ -198,7 +199,7 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
             Word word = new Word(data.getStringExtra(NewWordActivity.EXTRA_REPLY),data.getStringExtra(NewWordActivity.EXTRA_REPLY1),data.getStringExtra(NewWordActivity.EXTRA_REPLY2)
-            ,data.getStringExtra(NewWordActivity.EXTRA_REPLY3),data.getStringExtra(NewWordActivity.EXTRA_REPLY4));
+            ,data.getStringExtra(NewWordActivity.EXTRA_REPLY3),data.getStringExtra(NewWordActivity.EXTRA_REPLY4),data.getStringExtra(NewWordActivity.EXTRA_REPLY5));
             word.setId(id);
             mWordViewModel.update(word);
 
@@ -217,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_DATA_UPDATE_WORD2,word.getPressuredown());
         intent.putExtra(EXTRA_DATA_UPDATE_WORD3,word.getBloSugar());
         intent.putExtra(EXTRA_DATA_UPDATE_WORD4,word.getTime());
-
+        intent.putExtra(EXTRA_DATA_UPDATE_WORD5,word.getTimer());
         intent.putExtra(NewWordActivity.EXTRA_ID, word.getId());
         startActivityForResult(intent, UPDATE_WORD_ACTIVITY_REQUEST_CODE);
     }
