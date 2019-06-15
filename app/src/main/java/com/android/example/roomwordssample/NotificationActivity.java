@@ -12,6 +12,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.support.v7.widget.helper.ItemTouchHelper;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -40,7 +43,7 @@ public class NotificationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
         Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        setSupportActionBar(toolbar);
 
         mNotiViewModel = ViewModelProviders.of(this).get(NotiViewModel.class);
 
@@ -58,16 +61,89 @@ public class NotificationActivity extends AppCompatActivity {
             }
         });
 
-
+        //Floating action button setup
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(NotificationActivity.this, NewNotiActivity.class);
+                startActivityForResult(intent, NEW_NOTI_ACTIVITY_REQUEST_CODE);
+            }
+        });
+
+        // Add the functionality to swipe items in the
+        // recycler view to delete that item
+        ItemTouchHelper helper = new ItemTouchHelper(
+                new ItemTouchHelper.SimpleCallback(0,
+                        ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+                    @Override
+                    // We are not implementing onMove() in this app
+                    public boolean onMove(RecyclerView recyclerView,
+                                          RecyclerView.ViewHolder viewHolder,
+                                          RecyclerView.ViewHolder target) {
+                        return false;
+                    }
+
+                    @Override
+                    // When the use swipes a word,
+                    // delete that word from the database.
+                    public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                        int position = viewHolder.getAdapterPosition();
+                        Noti myNoti = adapter.getNotiAtPosition(position);
+                        Toast.makeText(NotificationActivity.this,
+                                getString(R.string.delete_word_preamble) + String.format(" %02d:%02d", myNoti.getHour(),
+                                        myNoti.getMinute()), Toast.LENGTH_LONG).show();
+
+                        // Delete the word
+                        mNotiViewModel.deleteNoti(myNoti);
+                    }
+                });
+        // Attach the item touch helper to the recycler view
+        helper.attachToRecyclerView(recyclerView);
+
+        adapter.setOnItemClickListener(new NotiListAdapter.ClickListener()  {
+
+            @Override
+            public void onItemClick(View v, int position) {
+                Noti noti = adapter.getNotiAtPosition(position);
+                launchUpdateNotiActivity(noti);
             }
         });
     }
+
+
+/*    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    // The options menu has a single item "Clear all data now"
+    // that deletes all the entries in the database
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.clear_noti) {
+            // Add a toast just for confirmation
+            Toast.makeText(this, R.string.clear_data_toast_text, Toast.LENGTH_LONG).show();
+
+            // Delete the existing data
+            mNotiViewModel.deleteAll();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+*/
+
+
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -80,7 +156,7 @@ public class NotificationActivity extends AppCompatActivity {
                     data.getBooleanExtra(NewNotiActivity.EXTRA_NOTI_BLOODS, TRUE));
             // Save the data
             mNotiViewModel.insert(noti);
-        } else if (requestCode == UPDATE_WORD_ACTIVITY_REQUEST_CODE
+        } else if (requestCode == UPDATE_NOTI_ACTIVITY_REQUEST_CODE
                 && resultCode == RESULT_OK) {
             // TODO: implement "UPDATE"
             int id =data.getIntExtra(NewNotiActivity.EXTRA_ID,-1);
@@ -96,13 +172,13 @@ public class NotificationActivity extends AppCompatActivity {
             noti.setId(id);
             mNotiViewModel.update(noti);
 
-            Toast.makeText(this,"提醒已設定" + noti.getHour() + ":"
-                    + noti.getMinute(),Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"提醒已設定" + String.format("%02d:%02d", noti.getHour(),
+                    noti.getMinute()), Toast.LENGTH_LONG).show();
 
 
         }else {
             Toast.makeText(
-                    this, "欄位不可為空", Toast.LENGTH_LONG).show();
+                    this, "勾選不可為全空", Toast.LENGTH_LONG).show();
         }
     }
 

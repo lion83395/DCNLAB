@@ -169,6 +169,9 @@ public class MainActivity extends AppCompatActivity {
             // Delete the existing data
             mWordViewModel.deleteAll();
             return true;
+        } else if(id == R.id.set_noti){
+            Intent intent = new Intent(this, NotificationActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

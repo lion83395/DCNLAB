@@ -67,15 +67,17 @@ public class NewNotiActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_word);
+        setContentView(R.layout.activity_new_noti);
 
         mTimeView = findViewById(R.id.textView_Time);
         mCheckWeight=findViewById(R.id.checkBox);
-        mCheckBloodP=findViewById(R.id.checkBox2);
-        mCheckBloodS=findViewById(R.id.checkBox3);
+        mCheckBloodP=findViewById(R.id.checkBox3);
+        mCheckBloodS=findViewById(R.id.checkBox2);
 
 
         final Bundle extras = getIntent().getExtras();
+        HOUR = 9;
+        MINUTE = 0;
 
         // If we are passed content, fill it in for the user to edit.
         if (extras != null) {
@@ -85,8 +87,7 @@ public class NewNotiActivity extends AppCompatActivity {
             BLOODP = extras.getBoolean(EXTRA_NOTI_BLOODP);
             BLOODS = extras.getBoolean(EXTRA_NOTI_BLOODS);
 
-            //mEditWordView.setText(word+"KG");
-            mTimeView.setText(HOUR + ":" + MINUTE);
+            mTimeView.setText(String.format("%02d:%02d", HOUR, MINUTE));
             mCheckWeight.setChecked(WEIGHT);
             mCheckBloodS.setChecked(BLOODS);
             mCheckBloodP.setChecked(BLOODP);
@@ -103,8 +104,10 @@ public class NewNotiActivity extends AppCompatActivity {
                 new TimePickerDialog(NewNotiActivity.this, new TimePickerDialog.OnTimeSetListener(){
 
                     @Override
-                    public void onTimeSet(TimePicker view, int HOUR, int MINUTE) {
-                        mTimeView.setText(HOUR + ":" + MINUTE);
+                    public void onTimeSet(TimePicker view, int mHour, int mMinute) {
+                        mTimeView.setText(String.format("%02d:%02d", mHour, mMinute));
+                        HOUR = mHour;
+                        MINUTE = mMinute;
                     }
                 }, HOUR, MINUTE, false).show();
             }
@@ -114,7 +117,7 @@ public class NewNotiActivity extends AppCompatActivity {
 
 
 
-        final Button button = findViewById(R.id.button_save);
+        final Button button = findViewById(R.id.btn_save);
 
         // When the user presses the Save button, create a new Intent for the reply.
         // The reply Intent will be sent back to the calling activity (in this case, MainActivity)

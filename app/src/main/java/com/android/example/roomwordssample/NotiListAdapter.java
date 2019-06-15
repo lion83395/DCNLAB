@@ -30,9 +30,12 @@ import com.android.example.roomwordssample.Word;
 import org.w3c.dom.Text;
 
 import java.sql.Time;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+
+import static java.lang.String.format;
 
 /**
  * This is the adapter for the RecyclerView that displays
@@ -60,7 +63,17 @@ public class NotiListAdapter extends RecyclerView.Adapter<NotiListAdapter.NotiVi
         //Calendar mCal=Calendar.getInstance();
         //CharSequence s= DateFormat.format("yyyy-MM-dd kk:mm:ss",mCal.getTime());
         Noti current = mNoti.get(position);
-        holder.weightItemView.setText(current.getHour() +":"+ current.getMinute());
+        String notification = new String();
+        if (current.getWeight())
+            notification += " 體重";
+        if (current.getPressure())
+            notification += " 血壓";
+        if (current.getBloSugar())
+            notification += " 血糖";
+
+
+        //holder.weightItemView.setText("%02d", current.getHour(), ":" format(current.getMinute().toString()));
+        holder.weightItemView.setText(String.format("%02d:%02d", current.getHour(), current.getMinute()) + notification);
         //   holder.pressureItemView.setText(current.getPressure());
         //  holder.bloodpressureItemView.setText(current.getBloSugar());
          /*else {

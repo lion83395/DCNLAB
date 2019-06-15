@@ -51,7 +51,7 @@ public interface NotiDao {
     @Query("SELECT * from noti_table LIMIT 1")
     Noti[] getAnyNoti();
 
-    @Query("SELECT * from noti_table ")
+    @Query("SELECT * from noti_table ORDER BY mHOUR, mMinute")
     LiveData<List<Noti>> getAllNoti();
 
 }

@@ -25,4 +25,5 @@ limitations under the License. -->
     <string name="no_word">No word</string>
     <string name="title_activity_set_time">SetTimeActivity</string>
     <string name="title_activity_notification">NotificationActivity</string>
+    <string name="set_noti">設定提醒</string>
 </resources>
