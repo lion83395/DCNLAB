@@ -37,6 +37,12 @@ import static com.android.example.roomwordssample.MainActivity.EXTRA_DATA_UPDATE
 import static com.android.example.roomwordssample.MainActivity.EXTRA_DATA_UPDATE_WORD2;
 import static com.android.example.roomwordssample.MainActivity.EXTRA_DATA_UPDATE_WORD3;
 import static com.android.example.roomwordssample.MainActivity.EXTRA_DATA_UPDATE_WORD4;
+import static com.android.example.roomwordssample.NotificationActivity.EXTRA_NOTI_UPDATE_BLOODP;
+import static com.android.example.roomwordssample.NotificationActivity.EXTRA_NOTI_UPDATE_BLOODS;
+import static com.android.example.roomwordssample.NotificationActivity.EXTRA_NOTI_UPDATE_HOUR;
+import static com.android.example.roomwordssample.NotificationActivity.EXTRA_NOTI_UPDATE_MINUTE;
+import static com.android.example.roomwordssample.NotificationActivity.EXTRA_NOTI_UPDATE_WEIGHT;
+import static java.lang.Boolean.TRUE;
 
 /**
  * This class displays a screen where the user enters a new word.
@@ -46,7 +52,7 @@ import static com.android.example.roomwordssample.MainActivity.EXTRA_DATA_UPDATE
  */
 public class NewNotiActivity extends AppCompatActivity {
     public static final String EXTRA_ID =
-            "com.codinginflow.architectureexample.EXTRA_ID";
+            "com.codinginflow.architectureexample.EXTRA_IDE";
     public static final String EXTRA_NOTI_HOUR = "com.example.android.roomwordsample.NOTI.HOUR";
     public static final String EXTRA_NOTI_MINUTE = "com.example.android.roomwordsample.NOTI.MIN";
     public static final String EXTRA_NOTI_WEIGHT = "com.example.android.roomwordsample.NOTI.WEI";
@@ -81,11 +87,11 @@ public class NewNotiActivity extends AppCompatActivity {
 
         // If we are passed content, fill it in for the user to edit.
         if (extras != null) {
-            HOUR = extras.getInt(EXTRA_NOTI_HOUR, 9);
-            MINUTE = extras.getInt(EXTRA_NOTI_MINUTE,0);
-            WEIGHT = extras.getBoolean(EXTRA_NOTI_WEIGHT);
-            BLOODP = extras.getBoolean(EXTRA_NOTI_BLOODP);
-            BLOODS = extras.getBoolean(EXTRA_NOTI_BLOODS);
+            HOUR = extras.getInt(EXTRA_NOTI_UPDATE_HOUR, 9);
+            MINUTE = extras.getInt(EXTRA_NOTI_UPDATE_MINUTE,0);
+            WEIGHT = extras.getBoolean(EXTRA_NOTI_UPDATE_WEIGHT);
+            BLOODP = extras.getBoolean(EXTRA_NOTI_UPDATE_BLOODP);
+            BLOODS = extras.getBoolean(EXTRA_NOTI_UPDATE_BLOODS);
 
             mTimeView.setText(String.format("%02d:%02d", HOUR, MINUTE));
             mCheckWeight.setChecked(WEIGHT);

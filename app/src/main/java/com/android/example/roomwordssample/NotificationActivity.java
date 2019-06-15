@@ -13,6 +13,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,11 +33,11 @@ public class NotificationActivity extends AppCompatActivity {
     public static final int NEW_NOTI_ACTIVITY_REQUEST_CODE = 1;
     public static final int UPDATE_NOTI_ACTIVITY_REQUEST_CODE = 2;
 
-    public static final String EXTRA_NOTI_UPDATE_HOUR = "0";
-    public static final String EXTRA_NOTI_UPDATE_MINUTE = "1";
-    public static final String EXTRA_NOTI_UPDATE_WEIGHT = "2";
-    public static final String EXTRA_NOTI_UPDATE_BLOODP = "3";
-    public static final String EXTRA_NOTI_UPDATE_BLOODS = "4";
+    public static final String EXTRA_NOTI_UPDATE_HOUR = "10";
+    public static final String EXTRA_NOTI_UPDATE_MINUTE = "11";
+    public static final String EXTRA_NOTI_UPDATE_WEIGHT = "12";
+    public static final String EXTRA_NOTI_UPDATE_BLOODP = "13";
+    public static final String EXTRA_NOTI_UPDATE_BLOODS = "14";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -189,6 +190,8 @@ public class NotificationActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_NOTI_UPDATE_WEIGHT, noti.getWeight());
         intent.putExtra(EXTRA_NOTI_UPDATE_BLOODP, noti.getPressure());
         intent.putExtra(EXTRA_NOTI_UPDATE_BLOODS, noti.getBloSugar());
+
+        Log.i("update", noti.getHour().toString());
 
         intent.putExtra(NewNotiActivity.EXTRA_ID, noti.getId());
         startActivityForResult(intent, UPDATE_NOTI_ACTIVITY_REQUEST_CODE);
