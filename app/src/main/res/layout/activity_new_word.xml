@@ -25,7 +25,7 @@ limitations under the License. -->
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="體重" />
+        android:text="體重 單位:KG" />
 
     <EditText
         android:id="@+id/edit_weight"
@@ -37,39 +37,39 @@ limitations under the License. -->
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="收縮壓" />
+        android:text="收縮壓 單位:mmHg" />
 
     <EditText
         android:id="@+id/edit_pressure"
         style="@style/text_view_style"
         android:layout_height="wrap_content"
-        android:hint="輸入收縮壓"
+        android:hint="輸入收縮壓(mmHg)"
         android:inputType="textAutoComplete" />
     <TextView
         android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="舒張壓" />
+        android:text="舒張壓 單位:mmHg" />
     <EditText
         android:id="@+id/edit_pressuredown"
         style="@style/text_view_style"
-        android:hint="輸入舒張壓"
+        android:hint="輸入舒張壓 (mmHg)"
         android:inputType="textAutoComplete" />
     <TextView
         android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="血糖" />
+        android:text="血糖 單位:mg/dl" />
     <EditText
         android:id="@+id/edit_bloodsugar"
         style="@style/text_view_style"
-        android:hint="輸入血糖"
+        android:hint="輸入血糖 (mg/dl)"
         android:inputType="textAutoComplete" />
     <TextView
         android:id="@+id/textView7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="日期" />
+        android:text="日期時間" />
     <EditText
         android:id="@+id/edit_time"
         style="@style/text_view_style"

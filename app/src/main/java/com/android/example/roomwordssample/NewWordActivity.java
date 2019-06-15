@@ -79,10 +79,10 @@ public class NewWordActivity extends AppCompatActivity {
             String word4= extras.getString(EXTRA_DATA_UPDATE_WORD4,"");
             String word5= extras.getString(EXTRA_DATA_UPDATE_WORD5,"");
             if (!word.isEmpty()) {
-                mEditWordView.setText(word+"KG");
-                mEditWordView1.setText(word1+"mmHG");
-                mEditWordView2.setText(word2+"mmHG");
-                mEditWordView3.setText(word3+"mg/dl");
+                mEditWordView.setText(word);
+                mEditWordView1.setText(word1);
+                mEditWordView2.setText(word2);
+                mEditWordView3.setText(word3);
                 mEditWordView4.setText(word4);
                 mEditWordView5.setText(word5);
                 mEditWordView.setSelection(word.length());
