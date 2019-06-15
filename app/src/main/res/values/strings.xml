@@ -24,4 +24,5 @@ limitations under the License. -->
     <string name="clear_data_toast_text">Clear the data now!</string>
     <string name="no_word">No word</string>
     <string name="title_activity_set_time">SetTimeActivity</string>
+    <string name="title_activity_notification">NotificationActivity</string>
 </resources>

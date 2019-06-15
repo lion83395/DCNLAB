@@ -30,8 +30,6 @@ public class Word {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
-   // @NonNull
-   // @ColumnInfo(name = "word")
     private String mWeight;
     private String mPressure;
     private String mPressuredown;
