@@ -25,14 +25,14 @@
             android:label = "Health Record"/>
         <activity
             android:name=".NotificationActivity"
-            android:label="Health Record"
+            android:label="Health Record Reminder"
             android:parentActivityName="com.android.example.roomwordssample.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value = "com.android.example.roomwordssample.MainActivity"/>
         </activity>
         <activity android:name=".NewNotiActivity"
-            android:label="Health Record"/>
+            android:label="Health Record Reminder"/>
     </application>
 
 </manifest>
