@@ -2,7 +2,6 @@
 An app that records patients' health data, says weight, blood pressure and blood sugar.  
 User can set reminder to remind them to record the data regularly everyday.  
 The app reminds user with notification only if user have set the reminder.  
-If the user save relavant record 1 hour before the reminder, the app won't initiate that notification on that day.  
 
 ## List of tools  
 Android Studio  
@@ -23,8 +22,23 @@ Android Studio
  - Creating and updating reminder
   
 #### P76071284 張家豪  
- - Creating notification  
+ - Creating invertal notification  
  - Update notification if time of reminder changes
- - Cancel today notification if record is saved 1 hour before the reminder
+ 
+ 
+ ## Screenshots
+ 
+ #### Record
+ 
+ ![screenshots/Record_1.jpg](screenshots/Record_1.jpg) 
+ ![screenshots/Record_2.jpg](screenshots/Record_2.jpg)
+ 
+ #### Reminder
 
+ ![screenshots/Remind_1.jpg](screenshots/Remind_1.jpg) 
+ ![screenshots/Remind_2.jpg](screenshots/Remind_2.jpg) 
 
+ #### Notification
+ 
+ ![screenshots/Noti_1.jpg](screenshots/Noti_1.jpg) 
+ ![screenshots/Noti_2.jpg](screenshots/Noti_2.jpg) 
