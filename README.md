@@ -30,15 +30,15 @@ Android Studio
  
  #### Record
  
- ![screenshots/Record_1.jpg](screenshots/Record_1.jpg) 
- ![screenshots/Record_2.jpg](screenshots/Record_2.jpg)
+ ![Screenshots/Record_1.jpg](Screenshots/Record_1.jpg) 
+ ![Screenshots/Record_2.jpg](Screenshots/Record_2.jpg)
  
  #### Reminder
 
- ![screenshots/Remind_1.jpg](screenshots/Remind_1.jpg) 
- ![screenshots/Remind_2.jpg](screenshots/Remind_2.jpg) 
+ ![Screenshots/Remind_1.jpg](Screenshots/Remind_1.jpg) 
+ ![Screenshots/Remind_2.jpg](Screenshots/Remind_2.jpg) 
 
  #### Notification
  
- ![screenshots/Noti_1.jpg](screenshots/Noti_1.jpg) 
- ![screenshots/Noti_2.jpg](screenshots/Noti_2.jpg) 
+ ![Screenshots/Noti_1.jpg](Screenshots/Noti_1.jpg) 
+ ![Screenshots/Noti_2.jpg](Screenshots/Noti_2.jpg) 
