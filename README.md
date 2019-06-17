@@ -19,8 +19,8 @@ Android Studio
 
 #### P76075050 黃達軒  
  - Database of reminder   
- - View of notification record
- - Creating and updating notification
+ - View of reminder  
+ - Creating and updating reminder
   
 #### P76071284 張家豪  
  - Creating notification  
