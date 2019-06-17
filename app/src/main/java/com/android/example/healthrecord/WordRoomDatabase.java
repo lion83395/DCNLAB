@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.example.roomwordssample;
+package com.android.example.healthrecord;
 
 import android.arch.persistence.db.SupportSQLiteDatabase;
 import android.arch.persistence.room.Database;

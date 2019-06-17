@@ -14,25 +14,18 @@
  * limitations under the License.
  */
 
-package com.android.example.roomwordssample;
+package com.android.example.healthrecord;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.android.example.roomwordssample.R;
-import com.android.example.roomwordssample.Word;
+import com.android.example.healthrecord.R;
 
-import org.w3c.dom.Text;
-
-import java.sql.Time;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import static java.lang.String.format;

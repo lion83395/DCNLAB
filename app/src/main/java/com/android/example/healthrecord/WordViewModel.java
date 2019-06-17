@@ -14,14 +14,11 @@
  * limitations under the License.
  */
 
-package com.android.example.roomwordssample;
+package com.android.example.healthrecord;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;
 import android.arch.lifecycle.LiveData;
-
-import com.android.example.roomwordssample.Word;
-import com.android.example.roomwordssample.WordRepository;
 
 import java.util.List;
 

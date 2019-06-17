@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.example.roomwordssample;
+package com.android.example.healthrecord;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,14 +24,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.android.example.roomwordssample.R;
+import com.android.example.healthrecord.R;
 
-import static com.android.example.roomwordssample.MainActivity.EXTRA_DATA_UPDATE_WORD;
-import static com.android.example.roomwordssample.MainActivity.EXTRA_DATA_UPDATE_WORD1;
-import static com.android.example.roomwordssample.MainActivity.EXTRA_DATA_UPDATE_WORD2;
-import static com.android.example.roomwordssample.MainActivity.EXTRA_DATA_UPDATE_WORD3;
-import static com.android.example.roomwordssample.MainActivity.EXTRA_DATA_UPDATE_WORD4;
-import static com.android.example.roomwordssample.MainActivity.EXTRA_DATA_UPDATE_WORD5;
+import static com.android.example.healthrecord.MainActivity.EXTRA_DATA_UPDATE_WORD;
+import static com.android.example.healthrecord.MainActivity.EXTRA_DATA_UPDATE_WORD1;
+import static com.android.example.healthrecord.MainActivity.EXTRA_DATA_UPDATE_WORD2;
+import static com.android.example.healthrecord.MainActivity.EXTRA_DATA_UPDATE_WORD3;
+import static com.android.example.healthrecord.MainActivity.EXTRA_DATA_UPDATE_WORD4;
+import static com.android.example.healthrecord.MainActivity.EXTRA_DATA_UPDATE_WORD5;
 
 /**
  * This class displays a screen where the user enters a new word.

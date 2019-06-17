@@ -1,4 +1,4 @@
-package com.android.example.roomwordssample;
+package com.android.example.healthrecord;
 
 
 import android.app.NotificationManager;
@@ -7,7 +7,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
-import android.util.Log;
 
 /**
  * Broadcast receiver for the alarm, which delivers the notification.

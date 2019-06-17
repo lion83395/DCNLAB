@@ -14,15 +14,12 @@
  * limitations under the License.
  */
 
-package com.android.example.roomwordssample;
+package com.android.example.healthrecord;
 
 import android.app.Application;
 import android.arch.lifecycle.LiveData;
 import android.os.AsyncTask;
 
-import com.android.example.roomwordssample.Word;
-import com.android.example.roomwordssample.WordDao;
-import com.android.example.roomwordssample.WordRoomDatabase;
 
 import java.util.List;
 
@@ -40,78 +37,78 @@ import java.util.List;
  * in the background if applicable.
  */
 
-public class WordRepository {
+public class NotiRepository {
 
-    private WordDao mWordDao;
-    private LiveData<List<Word>> mAllWords;
+    private NotiDao mNotiDao;
+    private LiveData<List<Noti>> mAllNoti;
 
-    WordRepository(Application application) {
-        WordRoomDatabase db = WordRoomDatabase.getDatabase(application);
-        mWordDao = db.wordDao();
-        mAllWords = mWordDao.getAllWords();
+    NotiRepository(Application application) {
+        NotiRoomDatabase db = NotiRoomDatabase.getDatabase(application);
+        mNotiDao = db.notiDao();
+        mAllNoti = mNotiDao.getAllNoti();
     }
 
-    LiveData<List<Word>> getAllWords() {
-        return mAllWords;
+    LiveData<List<Noti>> getAllNoti() {
+        return mAllNoti;
     }
 
-    public void insert(Word word) {
-        new insertAsyncTask(mWordDao).execute(word);
+    public void insert(Noti noti) {
+        new insertAsyncTask(mNotiDao).execute(noti);
     }
 
     public void deleteAll() {
-        new deleteAllWordsAsyncTask(mWordDao).execute();
+        new deleteAllNotiAsyncTask(mNotiDao).execute();
     }
 
     // Need to run off main thread
-    public void deleteWord(Word word) {
-        new deleteWordAsyncTask(mWordDao).execute(word);
+    public void deleteNoti(Noti noti) {
+        new deleteNotiAsyncTask(mNotiDao).execute(noti);
     }
 
-    public void update(Word word){new updateAsyncTask(mWordDao).execute(word);}
+    public void update(Noti noti){new updateAsyncTask(mNotiDao).execute(noti);}
 
     // Static inner classes below here to run database interactions
     // in the background.
 
     /**
-     * Insert a word into the database.
+     * Insert a notification into the database.
      */
-    private static class insertAsyncTask extends AsyncTask<Word, Void, Void> {
+    private static class insertAsyncTask extends AsyncTask<Noti, Void, Void> {
 
-        private WordDao mAsyncTaskDao;
+        private NotiDao mAsyncTaskDao;
 
-        insertAsyncTask(WordDao dao) {
+        insertAsyncTask(NotiDao dao) {
             mAsyncTaskDao = dao;
         }
 
         @Override
-        protected Void doInBackground(final Word... params) {
+        protected Void doInBackground(final Noti... params) {
             mAsyncTaskDao.insert(params[0]);
             return null;
         }
     }
-    private static class updateAsyncTask extends AsyncTask<Word, Void, Void> {
+    private static class updateAsyncTask extends AsyncTask<Noti, Void, Void> {
 
-        private WordDao mAsyncTaskDao;
+        private NotiDao mAsyncTaskDao;
 
-        updateAsyncTask(WordDao dao) {
+        updateAsyncTask(NotiDao dao) {
             this.mAsyncTaskDao = dao;
         }
 
         @Override
-        protected Void doInBackground(final Word... params) {
+        protected Void doInBackground(final Noti... params) {
             mAsyncTaskDao.update(params[0]);
             return null;
         }
     }
 
     /**
-     * Delete all words from the database (does not delete the table)
+     * Delete all notifications from the database (does not delete the table)
      */
-    private static class deleteAllWordsAsyncTask extends AsyncTask<Void, Void, Void> {
-        private WordDao mAsyncTaskDao;
+    private static class deleteAllNotiAsyncTask extends AsyncTask<Void, Void, Void> {
+        private NotiDao mAsyncTaskDao;
 
-        deleteAllWordsAsyncTask(WordDao dao) {
+        deleteAllNotiAsyncTask(NotiDao dao) {
             mAsyncTaskDao = dao;
         }
 
@@ -123,18 +120,18 @@ public class WordRepository {
     }
 
     /**
-     *  Delete a single word from the database.
+     *  Delete a single notification from the database.
      */
-    private static class deleteWordAsyncTask extends AsyncTask<Word, Void, Void> {
-        private WordDao mAsyncTaskDao;
+    private static class deleteNotiAsyncTask extends AsyncTask<Noti, Void, Void> {
+        private NotiDao mAsyncTaskDao;
 
-        deleteWordAsyncTask(WordDao dao) {
+        deleteNotiAsyncTask(NotiDao dao) {
             mAsyncTaskDao = dao;
         }
 
         @Override
-        protected Void doInBackground(final Word... params) {
-            mAsyncTaskDao.deleteWord(params[0]);
+        protected Void doInBackground(final Noti... params) {
+            mAsyncTaskDao.deleteNoti(params[0]);
             return null;
         }
     }

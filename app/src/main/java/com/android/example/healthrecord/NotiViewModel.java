@@ -1,4 +1,4 @@
-package com.android.example.roomwordssample;
+package com.android.example.healthrecord;
 
 import android.app.Application;
 import android.arch.lifecycle.AndroidViewModel;

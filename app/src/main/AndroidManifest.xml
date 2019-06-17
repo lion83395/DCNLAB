@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.example.roomwordssample">
+    package="com.android.example.healthrecord">
 
     <application
         android:allowBackup="true"
@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.android.example.healthrecord.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -21,20 +21,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.android.example.roomwordssample.NewWordActivity"
+            android:name="com.android.example.healthrecord.NewWordActivity"
             android:label = "Health Record"/>
         <activity
-            android:name=".NotificationActivity"
+            android:name="com.android.example.healthrecord.NotificationActivity"
             android:label="Health Record Reminder"
-            android:parentActivityName="com.android.example.roomwordssample.MainActivity">
+            android:parentActivityName="com.android.example.healthrecord.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value = "com.android.example.roomwordssample.MainActivity"/>
+                android:value = "com.android.example.healthrecord.MainActivity"/>
         </activity>
-        <activity android:name=".NewNotiActivity"
+        <activity android:name="com.android.example.healthrecord.NewNotiActivity"
             android:label="Health Record Reminder"/>
         <receiver
-            android:name=".AlarmReceiver"
+            android:name="com.android.example.healthrecord.AlarmReceiver"
             android:enabled="true"
             android:exported="false">
         </receiver>

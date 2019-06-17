@@ -14,35 +14,27 @@
  * limitations under the License.
  */
 
-package com.android.example.roomwordssample;
+package com.android.example.healthrecord;
 
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-import com.android.example.roomwordssample.R;
+import com.android.example.healthrecord.R;
 
 import java.util.Calendar;
 
-import static com.android.example.roomwordssample.MainActivity.EXTRA_DATA_UPDATE_WORD;
-import static com.android.example.roomwordssample.MainActivity.EXTRA_DATA_UPDATE_WORD1;
-import static com.android.example.roomwordssample.MainActivity.EXTRA_DATA_UPDATE_WORD2;
-import static com.android.example.roomwordssample.MainActivity.EXTRA_DATA_UPDATE_WORD3;
-import static com.android.example.roomwordssample.MainActivity.EXTRA_DATA_UPDATE_WORD4;
-import static com.android.example.roomwordssample.NotificationActivity.EXTRA_NOTI_UPDATE_BLOODP;
-import static com.android.example.roomwordssample.NotificationActivity.EXTRA_NOTI_UPDATE_BLOODS;
-import static com.android.example.roomwordssample.NotificationActivity.EXTRA_NOTI_UPDATE_HOUR;
-import static com.android.example.roomwordssample.NotificationActivity.EXTRA_NOTI_UPDATE_MINUTE;
-import static com.android.example.roomwordssample.NotificationActivity.EXTRA_NOTI_UPDATE_WEIGHT;
-import static java.lang.Boolean.TRUE;
+import static com.android.example.healthrecord.NotificationActivity.EXTRA_NOTI_UPDATE_BLOODP;
+import static com.android.example.healthrecord.NotificationActivity.EXTRA_NOTI_UPDATE_BLOODS;
+import static com.android.example.healthrecord.NotificationActivity.EXTRA_NOTI_UPDATE_HOUR;
+import static com.android.example.healthrecord.NotificationActivity.EXTRA_NOTI_UPDATE_MINUTE;
+import static com.android.example.healthrecord.NotificationActivity.EXTRA_NOTI_UPDATE_WEIGHT;
 
 /**
  * This class displays a screen where the user enters a new word.

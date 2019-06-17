@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.example.roomwordssample;
+package com.android.example.healthrecord;
 
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
@@ -30,15 +30,10 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.example.roomwordssample.NewWordActivity;
-import com.android.example.roomwordssample.R;
-import com.android.example.roomwordssample.Word;
-import com.android.example.roomwordssample.WordListAdapter;
-import com.android.example.roomwordssample.WordViewModel;
+import com.android.example.healthrecord.R;
 
 import java.util.List;
 
