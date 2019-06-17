@@ -35,7 +35,7 @@ Android Studio
  
  #### Reminder
 
- ![Screenshots/Remind_1.png](Screenshots/Remind_1.png) 
+ ![Screenshots/remind_1.png](Screenshots/remind_1.png) 
  ![Screenshots/Remind_2.png](Screenshots/Remind_2.png) 
 
  #### Notification
