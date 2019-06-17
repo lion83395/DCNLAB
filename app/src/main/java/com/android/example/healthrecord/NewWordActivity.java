@@ -24,7 +24,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.android.example.healthrecord.R;
+import java.util.Calendar;
 
 import static com.android.example.healthrecord.MainActivity.EXTRA_DATA_UPDATE_WORD;
 import static com.android.example.healthrecord.MainActivity.EXTRA_DATA_UPDATE_WORD1;
@@ -55,6 +55,7 @@ public class NewWordActivity extends AppCompatActivity {
     private EditText mEditWordView3;
     private EditText mEditWordView4;
     private EditText mEditWordView5;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +67,7 @@ public class NewWordActivity extends AppCompatActivity {
         mEditWordView3=findViewById(R.id.edit_bloodsugar);
         mEditWordView4=findViewById(R.id.edit_time);
         mEditWordView5=findViewById(R.id.edit_time1);
+        setTime();
 
 
        final Bundle extras = getIntent().getExtras();
@@ -108,7 +110,8 @@ public class NewWordActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // Create a new Intent for the reply.
                 Intent replyIntent = new Intent();
-               if (TextUtils.isEmpty(mEditWordView.getText())) {
+               if ((TextUtils.isEmpty(mEditWordView4.getText())||TextUtils.isEmpty(mEditWordView5.getText())))
+                {
                     // No word was entered, set the result accordingly.
                    setResult(RESULT_CANCELED, replyIntent);
                 } else {
@@ -136,5 +139,19 @@ public class NewWordActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+    public void setTime(){
+        Calendar c = Calendar.getInstance();
+        int y=c.get( Calendar.YEAR );
+        int m= c.get( Calendar.MONTH )+1;
+        int d= c.get( Calendar.DAY_OF_MONTH );
+        int h= c.get( Calendar.HOUR );
+        int min= c.get( Calendar.MINUTE );
+        String mi = "";
+        String ho ="";
+        if(min<10){mi="0"+min;}else{mi=min+"";}
+        if(h<10){ho="0"+h;}else{ho=h+"";}
+        mEditWordView4.setText(y+"/"+m+"/"+d );
+        mEditWordView5.setText(ho+":"+mi );
     }
 }
