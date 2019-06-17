@@ -68,6 +68,7 @@ public class NewNotiActivity extends AppCompatActivity {
     private Boolean WEIGHT;
     private Boolean BLOODP;
     private Boolean BLOODS;
+    private int alarm_id=-1;
 
 
     @Override
@@ -97,6 +98,7 @@ public class NewNotiActivity extends AppCompatActivity {
             mCheckWeight.setChecked(WEIGHT);
             mCheckBloodS.setChecked(BLOODS);
             mCheckBloodP.setChecked(BLOODP);
+            alarm_id=HOUR*60+MINUTE;
 
         } // Otherwise, start with empty fields.
 
@@ -149,6 +151,7 @@ public class NewNotiActivity extends AppCompatActivity {
                     if (id != -1) {
                         replyIntent.putExtra(EXTRA_ID, id);
                     }
+                    replyIntent.putExtra( "ALARM",alarm_id );
                     // Set the result status to indicate success.
                     setResult(RESULT_OK, replyIntent);
                 }
